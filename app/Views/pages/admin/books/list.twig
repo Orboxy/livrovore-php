@@ -1,0 +1,49 @@
+{% extends "base.twig" %}
+
+{% block title %}
+    Tous les articles - {{ parent() }} 
+    {#  Ici le {{ parrent() }} permet de récupérer le contenu du block déjà existant dans le fichier base.twig  #}
+{% endblock %}
+
+{% block header %}
+    <header class="header mb-3">
+        <div id="header-img" class="text-center">
+            <a href="{{ route(router, 'main-home') }}"><img class="img-fluid" src="/assets/imgs/Logo_book.png" alt="Responsive image" width="150"></a>
+        </div>
+        <nav class="navbar navbar-expand-sm bg-primary p-3 justify-content-center">
+            {% include 'partials/navbar-admin.twig' %}
+        </nav>
+    </header>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="container">
+            <a href="{{ route(router, 'admin-book-add') }}" class="btn btn-primary mb-4 border-primary">Ajouter un livre</a>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Date de publication</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for livre in liste_des_livres %}
+                    <tr>
+                        <td class="col-1">{{ livre.id }}</td>
+                        <td class="col-5">{{ livre.title }}</td>
+                        <td class="col-3">{{ livre.publishedAt|date('d/m/y H:i') }}</td>
+                        <td class="col-3">
+                            <a href="{{ route(router, "admin-book-delete", {id: livre.id}) }}" class="btn btn-danger">Supprimer</a>
+                            <a href="{{ route(router, "admin-book-edit", {id: livre.id}) }}" class="btn btn-warning">Modifier</a>
+{#                            <a href="{{ route(router, "show-livre", {slug: livre.slug}) }}" class="btn btn-info">Voir</a>#}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+{% endblock %}

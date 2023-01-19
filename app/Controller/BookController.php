@@ -3,7 +3,8 @@
 namespace Controller;
 
 use AttributesRouter\Attribute\Route;
-use Model\Manager\PostManager;
+use Model\Book;
+use Model\Manager\BookManager;
 
 class BookController extends CoreController
 {
@@ -11,8 +12,8 @@ class BookController extends CoreController
     #[Route('/admin/book', name: 'admin-book-list', methods: ['GET'])]
     public function register($arguments = [])
     {
-        $postManager = new PostManager();
-        $arguments['liste_des_articles'] = $postManager->getAll();
+        $bookManager = new BookManager();
+        $arguments['liste_des_livres'] = $bookManager->getAll();
 
         $this->show('pages/admin/books/list.twig', $arguments);
     }
@@ -21,9 +22,9 @@ class BookController extends CoreController
     #[Route('/admin/book/delete/{id}', name: 'admin-book-delete', methods: ['GET'])]
     public function delete($arguments = [])
     {
-        $postManager = new PostManager();
+        $bookManager = new BookManager();
         $id = $arguments['params']['id'];
-        $postManager->del($postManager->get($id));
+        $bookManager->del($bookManager->get($id));
         header('Location: /admin/book');
     }
 
@@ -31,19 +32,15 @@ class BookController extends CoreController
     #[Route('/admin/book/add', name: 'admin-book-add', methods: ['GET', 'POST'])]
     public function add($arguments = [])
     {
-        $postManager = new PostManager();
+        $bookManager = new BookManager();
 
         if (!empty($_POST)) {
-            $newPost = new Post();
+            $newPost = new Book();
             $newPost->setTitle($_POST['title']);
-            $newPost->setContent($_POST['content']);
             $newPost->setImage($_POST['image']);
             $newPost->setAuthor($_POST['author']);
-            $newPost->setPublishedAt((new \DateTime())->format('d/m/y H:i:s'));
-            $newPost->setSlug($_POST['slug']);// Ici, on ne demande pas la date dans le formulaire, puisque la date de publi c'est quandtu click, du coup, un simple new DateTime
-            // suffit pour générer la date et l'heure actuelle :)
 
-            $result = $postManager->add($newPost);
+            $result = $bookManager->add($newPost);
             if ($result) {
                 $arguments['success'][] = "Votre article à bien été créé.";
             }
@@ -57,20 +54,16 @@ class BookController extends CoreController
     #[Route('/admin/book/edit/{id}', name: 'admin-book-edit', methods: ['GET', 'POST'])]
     public function edit($arguments = [])
     {
-        $postManager = new PostManager();
+        $bookManager = new BookManager();
 
-        if ($post = $postManager->get($arguments['params']['id'])) {
-            $arguments['post'] = $post;
+        if ($book = $bookManager->get($arguments['params']['id'])) {
+            $arguments['book'] = $book;
             if (!empty($_POST)) {
-                $post->setTitle($_POST['title']);
-                $post->setContent($_POST['content']);
-                $post->setImage($_POST['image']);
-                $post->setAuthor($_POST['author']);
-                $post->setPublishedAt((new \DateTime())->format('d/m/y H:i:s'));
-                $post->setSlug($_POST['slug']);// Ici, on ne demande pas la date dans le formulaire, puisque la date de publi c'est quand tu click, du coup, un simple new DateTime
-                // suffit pour générer la date et l'heure actuelle :)
+                $book->setTitle($_POST['title']);
+                $book->setImage($_POST['image']);
+                $book->setAuthor($_POST['author']);
 
-                $result = $postManager->update($post);
+                $result = $bookManager->update($book);
                 if ($result) {
                     $arguments['success'][] = "Votre article à bien été modifié !";
                 } else {

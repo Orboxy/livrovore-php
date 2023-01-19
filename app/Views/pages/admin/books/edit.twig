@@ -35,49 +35,28 @@
 
                     <div class="col-md-6 col-12">
                         <div class="form-group mb-3">
-                            <label for="title">Titre de la revue</label>
-                            <input type="text" name="title" id="title" class="form-control" value="{{ review.title }}">
+                            <label for="title">Titre du livre</label>
+                            <input type="text" name="title" id="title" class="form-control" value="{{ book.title }}">
                         </div>
                     </div>
 
                     <div class="col-md-6 col-12">
                         <div class="form-group mb-3">
-                            <label for="author">Auteur de la revue</label>
-                            <input type="text" name="author" id="author" class="form-control" value="{{ review.author }}">
+                            <label for="author">Auteur du livre</label>
+                            <input type="text" name="author" id="author" class="form-control" value="{{ book.author }}">
                         </div>
                     </div>
+
 
                     <div class="col-md-5 col-12">
                         <div class="form-group mb-3">
-                            <label for="slug">URL de la revue</label>
-                            <input type="text" name="slug" id="slug" class="form-control" value="{{ review.slug }}">
-                            <span class="text-muted">Exemple : monsite.fr/article/<span class="fw-bold">mon-url-personalisée</span></span>
-                        </div>
-                    </div>
-
-                    <div class="col-md-5 col-12">
-                        <div class="form-group mb-3">
-                            <label for="image">Image de la revue</label>
-                            <input type="text" name="image" id="image" class="form-control" value="{{ review.image }}">
-                        </div>
-                    </div>
-
-                    <div class="col-md-2 col-12">
-                        <div class="form-group mb-3">
-                            <label for="note">Note de la revue</label>
-                            <input type="number" name="note" id="note" max="10" min="0" step="1" class="form-control" value="{{ review.note }}">
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <div class="form-group mb-3">
-                            <label for="content">Contenu de la revue</label>
-                            <textarea name="content" id="content" cols="30" rows="10" class="form-control">{{ review.content }}</textarea>
+                            <label for="image">Image du livre</label>
+                            <input type="text" name="image" id="image" class="form-control" value="{{ book.image }}">
                         </div>
                     </div>
 
                     <div class="col-12 text-center">
-                        <button type="submit" class="btn btn-primary w-100">Modifier la revue</button>
+                        <button type="submit" class="btn btn-primary w-100">Modifier le livre</button>
                     </div>
 
                 </div>
