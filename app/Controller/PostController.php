@@ -3,23 +3,8 @@
 namespace Controller;
 
 use AttributesRouter\Attribute\Route;
-use Cassandra\Date;
-use Enum\PasswordResetStatus;
-use Model\Manager\PostManager;
-use Model\Manager\UserManager;
 use Model\Post;
-use Model\User;
-use PHPMailer\PHPMailer\Exception;
-use PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException;
-use PragmaRX\Google2FA\Exceptions\InvalidCharactersException;
-use PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException;
-use Service\DoubleAuthenticationService;
-use Service\Mailer;
-use Twig\Error\LoaderError;
-use Twig\Error\RuntimeError;
-use Twig\Error\SyntaxError;
-use Util\AccountUtils;
-use Util\JsonResponse;
+use Model\Manager\PostManager;
 
 class PostController extends CoreController
 {

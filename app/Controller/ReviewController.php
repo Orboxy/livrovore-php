@@ -3,8 +3,8 @@
 namespace Controller;
 
 use AttributesRouter\Attribute\Route;
-use Model\Manager\ReviewManager;
 use Model\Review;
+use Model\Manager\ReviewManager;
 use Util\AccountUtils;
 
 class ReviewController extends CoreController
