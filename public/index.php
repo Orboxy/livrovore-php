@@ -25,7 +25,7 @@ try {
         ReviewController::class,
         BookController::class,
     ]);
-    // Quand tu créer un nouveau controller, il faut l'ajouter ici, sinon les nouvelles routes ne fonctionnerons pas :)
+    // Quand tu veux créer un nouveau controller, il faut l'ajouter ici, sinon les nouvelles routes ne fonctionneront pas :)
 } catch (ReflectionException $e) {
     dump($e->getMessage());
 }
@@ -36,7 +36,6 @@ $dotenv->load();
 
 if ($match) {
     $params['params'] = $match['params'];
-
     $params['router'] = $router;
     $params['session'] = new Session();
     $params['account'] = new AccountUtils($params['session']);
