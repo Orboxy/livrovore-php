@@ -3,23 +3,9 @@
 namespace Controller;
 
 use AttributesRouter\Attribute\Route;
-use Cassandra\Date;
-use Enum\PasswordResetStatus;
 use Model\Manager\ReviewManager;
-use Model\Manager\UserManager;
 use Model\Review;
-use Model\User;
-use PHPMailer\PHPMailer\Exception;
-use PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException;
-use PragmaRX\Google2FA\Exceptions\InvalidCharactersException;
-use PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException;
-use Service\DoubleAuthenticationService;
-use Service\Mailer;
-use Twig\Error\LoaderError;
-use Twig\Error\RuntimeError;
-use Twig\Error\SyntaxError;
 use Util\AccountUtils;
-use Util\JsonResponse;
 
 class ReviewController extends CoreController
 {
@@ -28,10 +14,17 @@ class ReviewController extends CoreController
     public function register($arguments = [])
     {
 
+        /** @var AccountUtils $am */ // ici, c'est juste pour que php comprenne que le $am est un AccountUtils
+        //Ce qui me permet de voir des fonctions dans le AccountUitls, sinon, phpstorm le trouvera pas, php le comprendra quand même
+        $am = $arguments['account'];
+        if(!$am->isConnected()) $am->checkConnected('/');
+        // Il faudra que tu mettes ces deux lignes là de partout au debut de tes fonctionne comme celles-ci.
+        // Ca permet de voir si t'es connecter, et si tu l'est pas, te rediriger sur la home
+
         $reviewManager = new ReviewManager();
         $arguments['liste_des_revues'] = $reviewManager->getAll();
 
-        $this->show('pages/admin/review/list.twig', $arguments);
+        $this->show('pages/admin/reviews/list.twig', $arguments);
     }
 
     // Ici : On va faire le bouton Supprimer
@@ -57,8 +50,8 @@ class ReviewController extends CoreController
             $newReview->setImage($_POST['image']);
             $newReview->setAuthor($_POST['author']);
             $newReview->setPublishedAt((new \DateTime())->format('d/m/y H:i:s'));
-            $newReview->setSlug($_POST['slug']);// Ici, on ne demande pas la date dans le formulaire, puisque la date de publi c'est quandtu click, du coup, un simple new DateTime
-            // suffit pour générer la date et l'heure actuelle :)
+            $newReview->setSlug($_POST['slug']);
+            $newReview->setNote($_POST['note']);
 
             $result = $reviewManager->add($newReview);
             if ($result) {
@@ -96,7 +89,7 @@ class ReviewController extends CoreController
                 }
             }
 
-            $this->show('pages/admin/review/edit.twig', $arguments);
+            $this->show('pages/admin/reviews/edit.twig', $arguments);
         } else {
             $this->page404($arguments);
         }

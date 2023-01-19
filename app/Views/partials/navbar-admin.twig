@@ -1,7 +1,14 @@
 <ul class="navbar-nav w-100 justify-content-center">
-    <li>
-        <button class="w-30 p-2 btn btn-danger">
-            <a href="{{ route(router, 'session-logout') }}" class="text-white text-decoration-none p-2">Se déconnecter</a>
-        </button>
+    <li class="nav-item">
+        <a href="{{ route(router, 'admin-post-list') }}" class="nav-link">Articles</a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ route(router, 'admin-book-list') }}" class="nav-link">Livres</a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ route(router, 'admin-review-list') }}" class="nav-link">Revues</a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ route(router, 'session-logout') }}" class="nav-link btn btn-danger py-2 px -4">Se déconnecter</a>
     </li>
 </ul>

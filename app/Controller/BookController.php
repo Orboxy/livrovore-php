@@ -3,49 +3,32 @@
 namespace Controller;
 
 use AttributesRouter\Attribute\Route;
-use Cassandra\Date;
-use Enum\PasswordResetStatus;
 use Model\Manager\PostManager;
-use Model\Manager\UserManager;
-use Model\Book;
-use Model\User;
-use PHPMailer\PHPMailer\Exception;
-use PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException;
-use PragmaRX\Google2FA\Exceptions\InvalidCharactersException;
-use PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException;
-use Service\DoubleAuthenticationService;
-use Service\Mailer;
-use Twig\Error\LoaderError;
-use Twig\Error\RuntimeError;
-use Twig\Error\SyntaxError;
-use Util\AccountUtils;
-use Util\JsonResponse;
 
 class BookController extends CoreController
 {
     // Ici : affichage de tous les posts que contient la BDD afin de pouvoir les administrer
-    #[Route('/admin/post', name: 'admin-post-list', methods: ['GET'])]
+    #[Route('/admin/book', name: 'admin-book-list', methods: ['GET'])]
     public function register($arguments = [])
     {
-
         $postManager = new PostManager();
         $arguments['liste_des_articles'] = $postManager->getAll();
 
-        $this->show('pages/admin/posts/list.twig', $arguments);
+        $this->show('pages/admin/books/list.twig', $arguments);
     }
 
     // Ici : On va faire le bouton Supprimer
-    #[Route('/admin/post/delete/{id}', name: 'admin-post-delete', methods: ['GET'])]
+    #[Route('/admin/book/delete/{id}', name: 'admin-book-delete', methods: ['GET'])]
     public function delete($arguments = [])
     {
         $postManager = new PostManager();
         $id = $arguments['params']['id'];
         $postManager->del($postManager->get($id));
-        header('Location: /admin/post');
+        header('Location: /admin/book');
     }
 
     // Ici : On va faire l'ajout d'un article
-    #[Route('/admin/post/add', name: 'admin-post-add', methods: ['GET', 'POST'])]
+    #[Route('/admin/book/add', name: 'admin-book-add', methods: ['GET', 'POST'])]
     public function add($arguments = [])
     {
         $postManager = new PostManager();
@@ -67,11 +50,11 @@ class BookController extends CoreController
         }
 
 
-        $this->show('pages/admin/posts/add.twig', $arguments);
+        $this->show('pages/admin/books/add.twig', $arguments);
     }
 
     // Ici : On va faire l'ajout d'un article
-    #[Route('/admin/post/edit/{id}', name: 'admin-post-edit', methods: ['GET', 'POST'])]
+    #[Route('/admin/book/edit/{id}', name: 'admin-book-edit', methods: ['GET', 'POST'])]
     public function edit($arguments = [])
     {
         $postManager = new PostManager();
@@ -95,7 +78,7 @@ class BookController extends CoreController
                 }
             }
 
-            $this->show('pages/admin/posts/edit.twig', $arguments);
+            $this->show('pages/admin/books/edit.twig', $arguments);
         } else {
             $this->page404($arguments);
         }

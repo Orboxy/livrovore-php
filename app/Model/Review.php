@@ -23,7 +23,10 @@ class Review
             call_user_func_array(array($this, $method_name), $get_arguments);
         }
     }
-    public function __construct6(int $id, string $title, string $content, string $image, string|\DateTime $published_at, string $author, string $slug, int $note): void
+    // Ici, le __construct permet de compter le nombre d'argument qu'envoie le retour de la requête SQL quand tu ajoute/modifie
+    // et du coup, étant donné que MySQL te renvoie le même nombre de champs que dans la BDD, il faut qu'il y ai les mêmes en paramettre
+    // + aussi le nombre de chamsp total juste après. Donc '__construct' deviens '__construct8' (car y'a 8 champs)
+    public function __construct8(int $id, string $title, string $content, string $image, string|\DateTime $published_at, string $author, string $slug, int $note): void
     {
         $this->id = $id;
         $this->title = $title;

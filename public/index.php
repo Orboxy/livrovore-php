@@ -1,9 +1,11 @@
 <?php
 
 use AttributesRouter\Router;
+use Controller\BookController;
 use Controller\CoreController;
 use Controller\MainController;
 use Controller\PostController;
+use Controller\ReviewController;
 use Controller\SessionController;
 use Dotenv\Dotenv;
 use Util\AccountUtils;
@@ -20,7 +22,10 @@ try {
         MainController::class,
         SessionController::class,
         PostController::class,
+        ReviewController::class,
+        BookController::class,
     ]);
+    // Quand tu créer un nouveau controller, il faut l'ajouter ici, sinon les nouvelles routes ne fonctionnerons pas :)
 } catch (ReflectionException $e) {
     dump($e->getMessage());
 }
