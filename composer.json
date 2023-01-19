@@ -1,0 +1,20 @@
+{
+  "require": {
+    "symfony/var-dumper": "^6.0",
+    "vlucas/phpdotenv": "^5.4",
+    "symfony/http-client": "^6.0",
+    "twig/twig": "^3.4",
+    "ext-pdo": "*",
+    "eredost/attributes-router": "^1.0",
+    "phpmailer/phpmailer": "^6.7",
+    "ramsey/uuid": "^4.6",
+    "pragmarx/google2fa": "^8.0",
+    "ext-gd": "*"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/Eredost/attributes-router.git"
+    }
+  ]
+}

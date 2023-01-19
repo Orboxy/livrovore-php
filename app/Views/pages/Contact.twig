@@ -1,0 +1,54 @@
+{% extends "base.twig" %}
+
+
+{% block content %}
+    <main>
+        <section>
+            <div class="container my-5">
+                <div class="row m-0">
+                    <h1 class="mb-5">Une question, une suggestion ? Ecrivez-moi !</h1>
+                    <div class="col-md-4 col-12">
+                        <div class="bg-primary d-flex justify-content-center align-items-center h-100 ">
+                            <img src="/imgs/Plume.png" alt="..." width="300">
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-12 p-0  pt-4 pb-4">
+                        <form class="bg-white border border-primary p-4 m-auto" action="#">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Nom</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                               placeholder="Nom" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Prénom</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                               placeholder="Prénom" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Adresse mail</label>
+                                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                                               placeholder="adresse@mail.com" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Message</label>
+                                        <textarea class="form-control" id="exampleFormControlInput1"
+                                                  placeholder="Votre message..."
+                                                  required rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary border-0 mt-3">Envoyer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock content %}
+

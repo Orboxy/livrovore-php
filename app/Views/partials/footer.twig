@@ -1,0 +1,24 @@
+<footer class="mt-5">
+    <div class="first bg-primary" style="height: 80px">
+        <div class="text-center">
+            <div class="d-flex text-white mx-auto justify-content-center">
+                <a href="#" class="text-white m-3 fs-4"><i class="fa fa-instagram"></i></a>
+                <a href="#" class="text-white m-3 fs-4"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="text-white m-3 fs-4"><i class="fa fa-twitter"></i></a>
+            </div>
+            <div class="second bg-primary" style="height: 30px">
+                <a class="text-white text-center text-decoration-none" href="/legal_notices">Mentions légales</a>
+                {% if session.loggedIn is not empty %}
+                    <a href="{{ route(router, 'session-account') }}"
+                       class="text-white text-decoration-none text-primary m-3 fs-6">Administration</a>
+                {% else %}
+                    <a href="{{ route(router, 'session-login') }}"
+                       class="text-white text-decoration-none text-primary m-3 fs-6">Administration</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="third text-center" style="height: 30px">
+            <p class="text-48 fw-light text-center m-0 p-2">Camille Regnier-Debrun &copy; 2022 </p>
+        </div>
+    </div>
+</footer>

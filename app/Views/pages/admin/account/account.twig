@@ -1,0 +1,35 @@
+{% extends "base.twig" %}
+
+{% block header %}
+    <header class="header mb-3">
+        <div id="header-img" class="text-center">
+            <a href="index.html"><img class="img-fluid" src="/assets/imgs/Logo_book.png" alt="Responsive image" width="150"></a>
+        </div>
+        <nav class="navbar navbar-expand-sm bg-primary p-3 justify-content-center">
+            {% include 'partials/navbar-admin.twig' %}
+        </nav>
+    </header>
+{% endblock %}
+
+
+{% block content %}
+    <main>
+        <section class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card h-100">
+                        <h1 class="text-48 card-title p-3 text-center">Bienvenue dans l'espace d'administration</h1>
+                        <div class="card-body">
+                            <p class="text-48 text-center">Où voulez-vous vous rendre ?</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{{ route(router, 'admin-post-list') }}" class="btn btn-primary">Mes articles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% endblock content %}
+

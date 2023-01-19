@@ -1,0 +1,23 @@
+{% extends "base.twig" %}
+
+{% block title %}404 Oops - {{ parent() }}{% endblock %}
+
+{% block header %}{% endblock %}
+{% block meta %}{% endblock %}
+
+
+{% block content %}
+    <div class="d-flex flex-column align-items-center justify-content-center vh-100 bg-white">
+        <h1 class="display-1 fw-bold text-primary">404</h1>
+        <hr class="col-3 col-md-2 mb-4 text-primary-50">
+        <p class="fw-bolder text-primary fs-4">Page ou ressource introuvable</p>
+        <button class="w-30 btn btn-md btn-primary mb-3 border-primary" type="submit">
+            <a class="text-48 text-decoration-none" href="{{ route(router, 'main-home') }}">Retourner à l'accueil</a>
+        </button>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+{% block scripts %}{% endblock %}
+
+

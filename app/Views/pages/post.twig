@@ -1,0 +1,18 @@
+{% extends "base.twig" %}
+
+{% block title %}
+    {{ post.title }} - {{ parent() }}
+{% endblock %}
+
+
+{% block content %}
+    <main>
+        <section class="container">
+            <div class="row">
+                <div class="col-12">
+                    {{ post.content|raw }}
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock content %}

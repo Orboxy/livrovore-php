@@ -1,0 +1,13 @@
+<div class="col-md-6 col-lg-4 col-12 p-3">
+    <div class="card h-100">
+        <img src="{{ post.image.src }}" class="card-img-top" alt="{{ post.image.alt }}">
+        <div class="card-body">
+            <p class="text-muted">{{ post.author }} {{ post.date }}</p>
+            <h3 class="card-title">{{ post.title }}</h3>
+            <p class="card-text">{{ post.excerpt }}</p>
+        </div>
+        <div class="card-footer">
+            <a href="{{ route(router, 'show-post', {slug: post.slug}) }}" class="btn btn-primary">Lire plus</a>
+        </div>
+    </div>
+</div>
