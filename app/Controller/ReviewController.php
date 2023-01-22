@@ -49,7 +49,7 @@ class ReviewController extends CoreController
             $newReview->setContent($_POST['content']);
             $newReview->setImage($_POST['image']);
             $newReview->setAuthor($_POST['author']);
-            $newReview->setPublishedAt((new \DateTime())->format('d/m/y H:i:s'));
+            $newReview->setPublishedAt((new \DateTime())->format('Y-m-d H:i:s'));
             $newReview->setSlug($_POST['slug']);
             $newReview->setNote($_POST['note']);
 
@@ -76,7 +76,7 @@ class ReviewController extends CoreController
                 $review->setContent($_POST['content']);
                 $review->setImage($_POST['image']);
                 $review->setAuthor($_POST['author']);
-                $review->setPublishedAt((new \DateTime())->format('d/m/y H:i:s'));
+                $review->setPublishedAt((new \DateTime())->format('Y-m-d H:i:s'));
                 $review->setSlug($_POST['slug']);
                 $review->setNote($_POST['note']);// Ici, on ne demande pas la date dans le formulaire, puisque la date de publi c'est quand tu click, du coup, un simple new DateTime
                 // suffit pour générer la date et l'heure actuelle :)

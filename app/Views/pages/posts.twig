@@ -1,0 +1,47 @@
+{% extends "base.twig" %}
+
+
+{% block content %}
+    <main>
+        <section id="articles" class="container py-2">
+            <h1 class="mb-5 text-decoration-underline">Les dernières news</h1>
+            <div class="card-group pb-6">
+                <div class="row">
+                    {% for article in tout_les_articles %}
+                        {% include 'partials/components/post-card-list.twig' with {post: article} %}
+                    {% endfor %}
+                </div>
+
+            </div>
+        </section>
+
+        <section id="pagination" class="container">
+            <div>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link text-48 bg-white" href="#">&laquo;</a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link bg-primary border-primary" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link text-primary" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link text-primary" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link text-primary" href="#">4</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link text-primary" href="#">5</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link text-48 bg-white" href="#">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+{% endblock content %}
+

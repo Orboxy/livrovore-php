@@ -2,13 +2,13 @@
     <div class="first bg-primary" style="height: 80px">
         <div class="text-center">
             <div class="d-flex text-white mx-auto justify-content-center">
-                <a href="#" class="text-white m-3 fs-4"><i class="fa fa-instagram"></i></a>
-                <a href="#" class="text-white m-3 fs-4"><i class="fa fa-facebook"></i></a>
-                <a href="#" class="text-white m-3 fs-4"><i class="fa fa-twitter"></i></a>
+                <a href="https://instagram.com" class="text-white m-3 fs-4"><i class="fa fa-instagram"></i></a>
+                <a href="https://facebook.com" class="text-white m-3 fs-4"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com" class="text-white m-3 fs-4"><i class="fa fa-twitter"></i></a>
             </div>
-            <div class="second bg-primary" style="height: 30px">
-                <a class="text-white text-center text-decoration-none" href="./pages/Legal-notices">Mentions légales</a>
-                <a class="text-white text-center text-decoration-none ps-3" href="./pages/Privacy_policy">Politique de confidentialité</a>
+            <div class="second bg-primary pb-3" style="min-height: 30px">
+                <a class="text-white text-center text-decoration-none" href="{{ route(router, 'main-legals') }}">Mentions légales</a>
+                <a class="text-white text-center text-decoration-none ps-3" href="{{ route(router, 'main-confidentialite') }}">Politique de confidentialité</a>
                 {% if session.loggedIn is not empty %}
                     <a href="{{ route(router, 'session-account') }}"
                        class="text-white text-decoration-none text-primary m-3 fs-6">Administration</a>

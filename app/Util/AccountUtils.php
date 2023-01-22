@@ -49,13 +49,4 @@ class AccountUtils
     {
         return $this->session->loggedIn;
     }
-
-    public function deleteAccount()
-    {
-        $um = new UserManager();
-        $um->removeAllResetToken($this->getUser());
-        if ($um->del($this->getUser())) {
-            $this->logout();
-        }
-    }
 }

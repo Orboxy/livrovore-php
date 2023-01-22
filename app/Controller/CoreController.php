@@ -52,7 +52,6 @@ class CoreController
      */
     public function page404(array $arguments = [])
     {
-        header('HTTP/1.0 404 Not Found');
         $this->show('404.twig', $arguments);
     }
 

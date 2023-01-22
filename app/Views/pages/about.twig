@@ -1,5 +1,9 @@
 {% extends "base.twig" %}
 
+{% block title %}
+    A propos - {{ parent() }}
+{% endblock %}
+
 
 {% block content %}
     <main>
@@ -39,7 +43,7 @@
                 </div>
                 <div class="col-md-4 col-12">
                     <div class="d-flex align-items-center justify-content-center h-100">
-                        <img src="imgs/img_profil.png" alt="Image de profile" class="card-img-top">
+                        <img src="/assets/imgs/img_profil.png" alt="Image de profile" class="card-img-top h-100 w-100">
                     </div>
                 </div>
             </div>

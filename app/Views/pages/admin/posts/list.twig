@@ -34,7 +34,7 @@
                     <tr>
                         <td class="col-1">{{ article.id }}</td>
                         <td class="col-5">{{ article.title }}</td>
-                        <td class="col-3">{{ article.publishedAt|date('d/m/y H:i') }}</td>
+                        <td class="col-3">{{ article.publishedAt|date('d/m/Y H:i') }}</td>
                         <td class="col-3">
                             <a href="{{ route(router, "admin-post-delete", {id: article.id}) }}" class="btn btn-danger">Supprimer</a>
                             <a href="{{ route(router, "admin-post-edit", {id: article.id}) }}" class="btn btn-warning">Modifier</a>

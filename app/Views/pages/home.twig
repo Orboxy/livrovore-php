@@ -12,18 +12,11 @@
                             <div class="card flex-md-row flex-column">
                                 <img src="https://picsum.photos/720/1000" alt="Card image" class="m-4" width="200">
                                 <div class="card-body align-self-center ms-5 h-100">
-                                    <p class="text-muted">Camille Regnier-Debrun</p>
-                                    <h2 class="card-title">La Horde du Contrevent : une exploration des thèmes de
-                                        l'aventure
-                                        et de la quête de soi</h2>
-                                    <p class="card-text my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Amet
-                                        architecto autem consequatur consequuntur distinctio ex impedit in ipsa iure
-                                        maxime
-                                        minima molestias natus necessitatibus non optio praesentium provident quasi
-                                        quidem
-                                        quo reiciendis, tempore velit voluptas?</p>
-                                    <a href="#" class="btn btn-primary">Lire plus</a>
+                                    <p class="text-muted">{{ dernier_article[0].author }}</p>
+{#                                    ici, je doit mettre un [0] car c'est un tableau, mais avec une seule valeur qui est notre article le plus récent#}
+                                    <h2 class="card-title">{{ dernier_article[0].title }}</h2>
+                                    <p class="card-text my-3">{{ dernier_article[0].content|slice(0, 230)|raw }} ...</p>
+                                    <a href="{{ route(router, 'show-post', {slug: dernier_article[0].slug}) }}" class="btn btn-primary">Lire plus</a>
                                 </div>
                             </div>
                         </div>
@@ -38,7 +31,7 @@
                 <div class="col-md-3 col-12 p-3">
                     <div class="card bg-primary-soft h-100">
                         <div class="card-header m-3" style="background-color: rgba(0, 0, 0, 0)">
-                            <img class="card-img-top" src="/imgs/img_profil.png" alt="Card image cap">
+                            <img class="card-img-top h-100" src="/assets/imgs/img_profil.png" alt="Card image cap">
                         </div>
                         <div class="card-body h-100">
                             <h5 class="card-title">Camille Regnier-Debrun</h5>
@@ -49,9 +42,6 @@
                                 m'a conduit à créer ce site. Suivez mes critiques et articles pour découvrir de nouveaux
                                 livres incroyables et pour une perspective unique sur les classiques de la
                                 littérature.</p>
-
-
-                            <hr style="width: 100px;" class="border border-1 border-primary mx-auto mt-5">
                             <div id="socials" class="d-flex justify-content-center"
                                  style="position: absolute; bottom: 17px; left: 50%; right: 100%">
                                 <a href="#" class="text-primary m-2 fs-4"><i class="fa fa-instagram"></i></a>

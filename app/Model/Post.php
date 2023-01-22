@@ -1,13 +1,18 @@
 <?php
 
 namespace Model;
-
 class Post
 {
+    // Ici, le $id à un typage de type "int"
     private int $id;
     private string $title;
     private string $content;
     private string $image;
+
+    // Ici, le $published_at à un typage de type "string" OU BIEN (|) de type \DateTime (Objet de PHP)
+    /**
+     * la barre | signifie "ou" en français. C'est donc ou un string ou un DateTime
+     */
     private string|\DateTime $published_at;
     private string $author;
     private string $slug;
@@ -21,6 +26,7 @@ class Post
             call_user_func_array(array($this, $method_name), $get_arguments);
         }
     }
+
     public function __construct6(int $id, string $title, string $content, string $image, string|\DateTime $published_at, string $author, string $slug): void
     {
         $this->id = $id;
@@ -35,6 +41,7 @@ class Post
     /**
      * @return int
      */
+
     public function getId(): int
     {
         return $this->id;
@@ -43,6 +50,7 @@ class Post
     /**
      * @param int $id
      */
+
     public function setId(int $id): void
     {
         $this->id = $id;
