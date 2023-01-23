@@ -35,10 +35,9 @@
                         <td class="col-1">{{ livre.id }}</td>
                         <td class="col-5">{{ livre.title }}</td>
                         <td class="col-3">{{ livre.publishedAt|date('d/m/y H:i') }}</td>
-                        <td class="col-3">
-                            <a href="{{ route(router, "admin-book-delete", {id: livre.id}) }}" class="btn btn-danger">Supprimer</a>
-                            <a href="{{ route(router, "admin-book-edit", {id: livre.id}) }}" class="btn btn-warning">Modifier</a>
-{#                            <a href="{{ route(router, "show-livre", {slug: livre.slug}) }}" class="btn btn-info">Voir</a>#}
+                        <td class="col-3 text-center">
+                            <a href="{{ route(router, "admin-book-delete", {id: livre.id}) }}" class="btn btn-danger my-1">Supprimer</a>
+                            <a href="{{ route(router, "admin-book-edit", {id: livre.id}) }}" class="btn btn-warning my-1">Modifier</a>
                         </td>
                     </tr>
                 {% endfor %}

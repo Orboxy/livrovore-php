@@ -35,10 +35,10 @@
                         <td class="col-1">{{ review.id }}</td>
                         <td class="col-5">{{ review.title }}</td>
                         <td class="col-3">{{ review.publishedAt|date('d/m/y H:i') }}</td>
-                        <td class="col-3">
-                            <a href="{{ route(router, "admin-review-delete", {id: review.id}) }}" class="btn btn-danger">Supprimer</a>
-                            <a href="{{ route(router, "admin-review-edit", {id: review.id}) }}" class="btn btn-warning">Modifier</a>
-                            <a href="{{ route(router, "show-review", {slug: review.slug}) }}" class="btn btn-info">Voir</a>
+                        <td class="col-3 text-center">
+                            <a href="{{ route(router, "admin-review-delete", {id: review.id}) }}" class="btn btn-danger my-1">Supprimer</a>
+                            <a href="{{ route(router, "admin-review-edit", {id: review.id}) }}" class="btn btn-warning my-1">Modifier</a>
+                            <a href="{{ route(router, "show-review", {slug: review.slug}) }}" class="btn btn-info my-1">Voir</a>
                         </td>
                     </tr>
                 {% endfor %}

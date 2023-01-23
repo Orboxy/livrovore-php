@@ -8,11 +8,9 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 mx-auto mt-5 text-center">
-                <form method="post" class="needs-validation" novalidate>
-                    <img class="mb-4" src="https://static.hephe.net/images/profile/sylweb_logo.svg" alt="" width="72"
-                         height="57">
-                    <h1 class="h3 mb-3 fw-normal">Inscription</h1>
+            <div class="col-lg-4 mx-auto">
+                <form method="post">
+                    <h1 class="h3 mb-3 fw-normal text-center">Inscription</h1>
 
                     {% if error is not empty %}
                         {% for err in error %}
@@ -32,30 +30,28 @@
                         {% endfor %}
                     {% endif %}
 
-                    <div class="form-floating mb-3 has-validation">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="john.doe@example.com" required>
-                        <label for="email">Adresse email</label>
-                        <div class="invalid-feedback">Veuillez rentrer un email valide.</div>
-                    </div>
-                    <div class="form-floating mb-3 has-validation">
-                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="John" required>
+                    <div class="form-group mb-3">
                         <label for="firstname">Prénom</label>
-                        <div class="invalid-feedback">Veuillez rentrer votre prénom.</div>
+                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="John" required>
                     </div>
-                    <div class="form-floating mb-3 has-validation">
-                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Doe" required>
+                    <div class="form-group mb-3">
                         <label for="lastname">Nom</label>
-                        <div class="invalid-feedback">Veuillez rentrer votre nom.</div>
+                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Doe" required>
                     </div>
-                    <div class="form-floating mb-3 has-validation">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                    <div class="form-group mb-3">
+                        <label for="email">Adresse email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="john.doe@example.com" required>
+                    </div>
+                    <div class="form-group mb-3">
                         <label for="password">Mot de passe</label>
-                        <div class="invalid-feedback">Veuillez rentrer mot de passe.</div>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                     </div>
 
-                    <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">S'inscrire</button>
-                    <a href="{{ route(router, 'session-login') }}" class="btn btn-secondary btn-sm mb-3 w-100">J'ai déjà un compte</a>
-                    <a href="{{ route(router, 'main-home') }}" class="btn btn-link mb-3">Retour à l'accueil</a>
+                    <div class="text-center">
+                        <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">S'inscrire</button>
+                        <a href="{{ route(router, 'session-login') }}" class="btn btn-secondary btn-sm mb-3 w-100">J'ai déjà un compte</a>
+                        <a href="{{ route(router, 'main-home') }}" class="btn btn-link mb-3">Retour à l'accueil</a>
+                    </div>
                 </form>
             </div>
         </div>
