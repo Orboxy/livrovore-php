@@ -56,7 +56,7 @@ class ReviewManager extends Database
         else return false;
     }
 
-    public function update(Review $obj): int
+    public function update(Review $obj)
     {
         if ($this->sql(
             "UPDATE revues SET title = :title, content = :content, image = :image, published_at = :published_at, author = :author, slug = :slug, note = :note WHERE id=:id",
