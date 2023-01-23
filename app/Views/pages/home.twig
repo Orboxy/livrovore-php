@@ -5,14 +5,14 @@
 
         <section id="main" class="container mb-3">
             <div class="row">
-                <div class="col-md-9 col-12">
+                <div class="col-lg-9 col-12">
                     <div class="row">
                         <div class="col-12 p-3 hovertop">
                             <div class="card flex-md-row flex-column">
-                                <img src="https://picsum.photos/720/1000" alt="Card image" class="m-4" width="200">
-                                <div class="card-body align-self-center ms-5 h-100">
+                                <img src="https://picsum.photos/720/1000" alt="Card image" class="m-md-4 m-0 img-top-card" width="200">
+                                <div class="card-body align-self-center ms-0 ms-md-5 h-100">
                                     <p class="text-muted">{{ dernier_article[0].author }}</p>
-                                    {#                                    ici, je doit mettre un [0] car c'est un tableau, mais avec une seule valeur qui est notre article le plus récent #}
+                                    {# ici, je doit mettre un [0] car c'est un tableau, mais avec une seule valeur qui est notre article le plus récent #}
                                     <h2 class="card-title">{{ dernier_article[0].title }}</h2>
                                     <p class="card-text my-3">{{ dernier_article[0].content|slice(0, 230)|raw }} ...</p>
                                     <a href="{{ route(router, 'show-post', {slug: dernier_article[0].slug}) }}"
@@ -28,7 +28,7 @@
                         {% endfor %}
                     </div>
                 </div>
-                <div class="col-md-3 col-12 p-3">
+                <div class="col-lg-3 col-12 p-3">
                     <div class="card bg-primary-soft h-100">
                         <div class="card-header m-3" style="background-color: rgba(0, 0, 0, 0)">
                             <img class="card-img-top h-100" src="/assets/imgs/img_profil.png" alt="Card image cap">
@@ -71,13 +71,13 @@
             </div>
         </section>
 
-        <section id="nouveautes" class="container">
+        <section id="heart" class="container">
             <!-- en générale, mieux vaut utilise le container pour centrer tes section comme ceci -->
             <div class="row">
                 <h2 class="display-4 fw-light text-center text-48 my-5">Mes coups de coeur</h2>
                 <div class="row row-cols-2 row-cols-md-6 row-cols-sm-3 g-2 justify-content-center">
                     {% for livre in all_books %}
-                        <div class="col-2 hovertop">
+                        <div class="col hovertop">
                             <div class="text-center card h-100">
                                 <img src="{{ livre.image }}" alt="..." class="card-img-top">
                                 <div class="card-body">
@@ -87,12 +87,6 @@
                             </div>
                         </div>
                     {% endfor %}
-                    
-                    {% if books_count > 12 %}
-                        <div class="col-12 text-center w-100 my-5">
-                            <a href="/books" class="btn btn-primary border-primary">Voir plus</a>
-                        </div>
-                    {% endif %}
                 </div>
             </div>
         </section>

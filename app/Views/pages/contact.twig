@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 
 {% block title %}
-   Me contacter - {{ parent() }}
+    Me contacter - {{ parent() }}
 {% endblock %}
 
 {% block content %}
@@ -28,27 +28,35 @@
                         <form class="bg-white border border-primary p-4 m-auto" action="" method="post">
                             <input type="hidden" name="submited" value="true">
                             <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <label for="lastname" class="form-label">Nom</label>
-                                    <input type="text" name="lastname" class="form-control" id="lastname"
-                                           placeholder="Nom" required>
+                                <div class="col-12 col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="lastname" class="form-label">Nom</label>
+                                        <input type="text" name="lastname" class="form-control" id="lastname"
+                                               placeholder="Nom" required>
+                                    </div>
                                 </div>
-                                <div class="col-12 col-md-6">
-                                    <label for="firstname" class="form-label">Prénom</label>
-                                    <input type="text" name="firstname" class="form-control" id="firstname"
-                                           placeholder="Prénom" required>
+                                <div class="col-12 col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="firstname" class="form-label">Prénom</label>
+                                        <input type="text" name="firstname" class="form-control" id="firstname"
+                                               placeholder="Prénom" required>
+                                    </div>
                                 </div>
-                                <div class="col-12">
-                                    <label for="email" class="form-label">Adresse mail</label>
-                                    <input type="email" name="email" class="form-control" id="email"
-                                           placeholder="adresse@mail.com" required>
+                                <div class="col-12 mb-3">
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">Adresse mail</label>
+                                        <input type="email" name="email" class="form-control" id="email"
+                                               placeholder="adresse@mail.com" required>
+                                    </div>
                                 </div>
-                                <div class="col-12">
-                                    <label for="message" class="form-label">Message</label>
-                                    <textarea name="message" class="form-control" id="message"
-                                              placeholder="Votre message..." required rows="3"></textarea>
+                                <div class="col-12 mb-3">
+                                    <div class="form-group">
+                                        <label for="message" class="form-label">Message</label>
+                                        <textarea name="message" class="form-control" id="message"
+                                                  placeholder="Votre message..." required rows="3"></textarea>
+                                    </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 mb-3">
                                     <button type="submit" class="btn btn-primary border-0 mt-3 w-100">Envoyer</button>
                                 </div>
                             </div>

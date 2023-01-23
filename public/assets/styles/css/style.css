@@ -7,6 +7,7 @@ h1, h2, h3, h4, h5, h6, .title {
     font-family: Bookish, sans-serif;
     text-transform: uppercase;
 }
+
 @media all and (min-width: 992px) {
     .nav-item .submenu {
         display: none;
@@ -136,6 +137,12 @@ img.card-img-top {
 @media screen and (max-width: 992px) {
     .bg-with-image {
         height: 30rem;
+    }
+
+    .img-top-card{
+        width: 100%;
+        height: 17rem;
+        object-fit: cover;
     }
 }
 

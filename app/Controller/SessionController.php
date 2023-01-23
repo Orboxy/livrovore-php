@@ -93,7 +93,7 @@ class SessionController extends CoreController
             }
         }
 
-        $this->show('pages/Login.twig', $arguments);
+        $this->show('pages/admin/login.twig', $arguments);
     }
 
     #[Route('/account', name: 'session-account', methods: ['GET'])]

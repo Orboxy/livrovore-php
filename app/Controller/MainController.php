@@ -21,7 +21,6 @@ class MainController extends CoreController
         $arguments['la_list_des_livres'] = $postManager->getAll(3, 1); // Ici, on en récupère toi, mais on oublie le 1er, car on le récup au dessus
         $arguments['last_reviews'] = $reviewManager->getAll(3);
         $arguments['all_books'] = $bookManager->getAll(12);
-        $arguments['books_count'] = $bookManager->count();
 
         $this->show('pages/home.twig', $arguments);
     }
