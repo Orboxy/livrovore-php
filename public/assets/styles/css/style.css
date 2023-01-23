@@ -58,10 +58,10 @@ h1, h2, h3, h4, h5, h6, .title {
 .btn-primary {
     --bs-btn-color: white;
     --bs-btn-bg: var(--bs-primary);
-    /*--bs-btn-border-color: var(--bs-primary);*/
+    --bs-btn-border-color: var(--bs-primary);
     --bs-btn-hover-color: white;
     --bs-btn-hover-bg: var(--bs-primary-hover);
-    /*--bs-btn-hover-border-color: var(--bs-primary);*/
+    --bs-btn-hover-border-color: var(--bs-primary);
 }
 
 .btn-primary:active {
