@@ -1,5 +1,9 @@
 {% extends "base.twig" %}
 
+{% block title %}
+    Mon compte - {{ parent() }}
+{% endblock %}
+
 {% block header %}
     <header class="header mb-3">
         <div id="header-img" class="text-center">
@@ -16,14 +20,11 @@
     <main>
         <section class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-8 mx-auto mt-5">
                     <div class="card h-100">
                         <h1 class="text-48 card-title p-3 text-center">Bienvenue dans l'espace d'administration</h1>
                         <div class="card-body">
                             <p class="text-48 text-center">Où voulez-vous vous rendre ?</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="{{ route(router, 'admin-post-list') }}" class="btn btn-primary">Mes articles</a>
                         </div>
                     </div>
                 </div>

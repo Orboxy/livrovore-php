@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 
 {% block title %}
-    Tous les articles - {{ parent() }} 
+    Toutes les revues - {{ parent() }}
     {#  Ici le {{ parrent() }} permet de récupérer le contenu du block déjà existant dans le fichier base.twig  #}
 {% endblock %}
 
@@ -38,7 +38,7 @@
                         <td class="col-3">
                             <a href="{{ route(router, "admin-review-delete", {id: review.id}) }}" class="btn btn-danger">Supprimer</a>
                             <a href="{{ route(router, "admin-review-edit", {id: review.id}) }}" class="btn btn-warning">Modifier</a>
-{#                            <a href="{{ route(router, "show-review", {slug: review.slug}) }}" class="btn btn-info">Voir</a>#}
+                            <a href="{{ route(router, "show-review", {slug: review.slug}) }}" class="btn btn-info">Voir</a>
                         </td>
                     </tr>
                 {% endfor %}

@@ -11,7 +11,7 @@ class Review
     private string|\DateTime $published_at;
     private string $author;
 
-    private int $note;
+    private float $note;
     private string $slug;
 
     public function __construct()
@@ -26,7 +26,7 @@ class Review
     // Ici, le __construct permet de compter le nombre d'argument qu'envoie le retour de la requête SQL quand tu ajoute/modifie
     // et du coup, étant donné que MySQL te renvoie le même nombre de champs que dans la BDD, il faut qu'il y ai les mêmes en paramettre
     // + aussi le nombre de chamsp total juste après. Donc '__construct' deviens '__construct8' (car y'a 8 champs)
-    public function __construct8(int $id, string $title, string $content, string $image, string|\DateTime $published_at, string $author, string $slug, int $note): void
+    public function __construct8(int $id, string $title, string $content, string $image, string|\DateTime $published_at, string $author, string $slug, float $note): void
     {
         $this->id = $id;
         $this->title = $title;
@@ -135,17 +135,17 @@ class Review
     }
 
     /**
-     * @return int
+     * @return float
      */
-    public function getNote(): int
+    public function getNote(): float
     {
         return $this->note;
     }
 
     /**
-     * @param int $note
+     * @param float $note
      */
-    public function setNote(int $note): void
+    public function setNote(float $note): void
     {
         $this->note = $note;
     }

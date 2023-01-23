@@ -1,3 +1,12 @@
+@font-face {
+    font-family: Bookish;
+    src: url('/assets/fonts/Bookish.ttf');
+}
+
+h1, h2, h3, h4, h5, h6, .title {
+    font-family: Bookish, sans-serif;
+    text-transform: uppercase;
+}
 @media all and (min-width: 992px) {
     .nav-item .submenu {
         display: none;

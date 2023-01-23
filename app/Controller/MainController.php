@@ -40,6 +40,29 @@ class MainController extends CoreController
         }
     }
 
+    #[Route('/revue/{slug}', name: 'show-review', methods: ['GET'])]
+    public function showReview(array $arguments = []): void
+    {
+        $reviewManager = new ReviewManager();
+        $review = $reviewManager->getBySlug($arguments['params']['slug']);
+
+        if ($review) {
+            $arguments['review'] = $review;
+
+            if(is_float($review->getNote())) {
+                $splitedNote = explode(".", $review->getNote());
+                $note = $splitedNote[0] . $splitedNote[1];
+            } else {
+                $note = $review->getNote() . "0";
+            }
+            $arguments['note'] = $note;
+
+            $this->show('pages/review.twig', $arguments);
+        } else {
+            $this->page404($arguments);
+        }
+    }
+
     // Du coup, tout le #[Route] et le public function, c'est une route !
 
     // "/articles" = le lien pour y accéder

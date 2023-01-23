@@ -1,6 +1,5 @@
 {% extends "base.twig" %}
 
-
 {% block content %}
     <main>
 
@@ -8,7 +7,7 @@
             <div class="row">
                 <div class="col-md-9 col-12">
                     <div class="row">
-                        <div class="col-12 p-3">
+                        <div class="col-12 p-3 hovertop">
                             <div class="card flex-md-row flex-column">
                                 <img src="https://picsum.photos/720/1000" alt="Card image" class="m-4" width="200">
                                 <div class="card-body align-self-center ms-5 h-100">
@@ -78,7 +77,7 @@
                 <h2 class="display-4 fw-light text-center text-48 my-5">Mes coups de coeur</h2>
                 <div class="row row-cols-2 row-cols-md-6 row-cols-sm-3 g-2 justify-content-center">
                     {% for livre in all_books %}
-                        <div class="col-2">
+                        <div class="col-2 hovertop">
                             <div class="text-center card h-100">
                                 <img src="{{ livre.image }}" alt="..." class="card-img-top">
                                 <div class="card-body">

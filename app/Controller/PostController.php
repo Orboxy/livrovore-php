@@ -14,7 +14,7 @@ class PostController extends CoreController
     {
 
         $postManager = new PostManager();
-        $arguments['liste_des_articles'] = $postManager->getAll();
+        $arguments['liste_des_articles'] = $postManager->getAll(-1);
 
         $this->show('pages/admin/posts/list.twig', $arguments);
     }
