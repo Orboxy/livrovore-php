@@ -3,7 +3,9 @@
 namespace Controller;
 
 use AttributesRouter\Attribute\Route;
+use Model\Manager\BookManager;
 use Model\Manager\PostManager;
+use Model\Manager\ReviewManager;
 
 class MainController extends CoreController
 {
@@ -12,9 +14,14 @@ class MainController extends CoreController
     public function home(array $arguments = []): void
     {
         $postManager = new PostManager();
+        $reviewManager = new ReviewManager();
+        $bookManager = new BookManager();
 
         $arguments['dernier_article'] = $postManager->getAll(1);
         $arguments['la_list_des_livres'] = $postManager->getAll(3, 1); // Ici, on en récupère toi, mais on oublie le 1er, car on le récup au dessus
+        $arguments['last_reviews'] = $reviewManager->getAll(3);
+        $arguments['all_books'] = $bookManager->getAll(12);
+        $arguments['books_count'] = $bookManager->count();
 
         $this->show('pages/home.twig', $arguments);
     }
@@ -55,9 +62,20 @@ class MainController extends CoreController
         $this->show('pages/about.twig', $arguments);
     }
 
-    #[Route('/contactez-moi', name: 'main-contact', methods: ['GET'])]
+    #[Route('/contactez-moi', name: 'main-contact', methods: ['GET', 'POST'])]
     public function contact(array $arguments = []): void
     {
+        if (isset($_POST['submited'])) {
+            $sent = mail(
+                'camille.rgn-dbn@outlook.com',
+                'Formulaire de contact',
+                'Vous avez reçu un nouveau message de ' . $_POST['firstname'] . ' ' . $_POST['lastname'] . ' (' . $_POST['email'] . '). Message : ' . $_POST['message']
+            );
+
+            if ($sent) {
+                $arguments['success'][] = "Votre message à bien été envoyé !";
+            }
+        }
         $this->show('pages/contact.twig', $arguments);
     }
 

@@ -24,9 +24,11 @@ class ReviewManager extends Database
         return $this->sql("SELECT id, title, content, image, published_at, author, slug, note FROM revues WHERE slug=:slug", ['slug' => $slug], [PDO::FETCH_CLASS, Review::class])->fetch();
     }
 
-    public function getAll(): mixed
+    public function getAll(int $limit = 10, int $offset = -1, $data = []): mixed
     {
-        return $this->sql("SELECT * FROM revues WHERE 1", [], [PDO::FETCH_CLASS, Review::class])->fetchAll();
+        $check_offset = ($offset == -1) ? "" : " OFFSET " . $offset;
+        $checkLimit = ($limit == -1) ? "" : " LIMIT " . $limit;
+        return $this->sql("SELECT * FROM revues WHERE 1 ORDER BY published_at DESC" . $checkLimit . $check_offset, [], [PDO::FETCH_CLASS, Review::class])->fetchAll();
     }
 
     public function add(Review $obj): ?Review
@@ -54,7 +56,7 @@ class ReviewManager extends Database
         else return false;
     }
 
-    public function update(Review $obj): mixed
+    public function update(Review $obj): int
     {
         if ($this->sql(
             "UPDATE revues SET title = :title, content = :content, image = :image, published_at = :published_at, author = :author, slug = :slug, note = :note WHERE id=:id",

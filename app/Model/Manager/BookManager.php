@@ -19,9 +19,11 @@ class BookManager extends Database
         return $this->sql("SELECT id, title, image, author FROM livre WHERE id=:id", ['id' => $obj], [PDO::FETCH_CLASS, Book::class])->fetch();
     }
 
-    public function getAll(): mixed
+    public function getAll(int $limit = 10, int $offset = -1, $data = []): mixed
     {
-        return $this->sql("SELECT * FROM livre WHERE 1", [], [PDO::FETCH_CLASS, Book::class])->fetchAll();
+        $check_offset = ($offset == -1) ? "" : " OFFSET " . $offset;
+        $checkLimit = ($limit == -1) ? "" : " LIMIT " . $limit;
+        return $this->sql("SELECT * FROM livre WHERE 1 ORDER BY id DESC" . $checkLimit . $check_offset, [], [PDO::FETCH_CLASS, Book::class])->fetchAll();
     }
 
     public function add(Book $obj): Book
@@ -57,5 +59,10 @@ class BookManager extends Database
             ]
         )->execute()) return $obj;
         else return null;
+    }
+
+    public function count(): mixed
+    {
+        return $this->sql("SELECT COUNT(*) FROM livre")->fetch()[0];
     }
 }

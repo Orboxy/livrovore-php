@@ -4,7 +4,7 @@
         <div class="card-body">
             <p class="text-muted">{{ post.author }}</p>
             <h3 class="card-title">{{ post.title }}</h3>
-            <p class="card-text">{{ post.content|slice(0, 150) }}</p>
+            <p class="card-text">{{ post.content|slice(0, 150)|raw }}</p>
         </div>
         <div class="card-footer">
             <a href="{{ route(router, 'show-post', {slug: post.slug}) }}" class="btn btn-primary">Lire plus</a>

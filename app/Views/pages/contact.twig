@@ -12,42 +12,46 @@
                             <img src="/assets/imgs/Plume.png" alt="..." width="300">
                         </div>
                     </div>
-                    <div class="col-md-8 col-12 p-0  pt-4 pb-4">
-                        <form class="bg-white border border-primary p-4 m-auto" action="#">
+                    <div class="col-md-8 col-12 p-0 pt-4 pb-4">
+                        {% if success is not empty %}
+                            {% for succ in success %}
+                                <div class="col-12">
+                                    <div class="alert alert-dismissible alert-success">
+                                        {{ succ|raw }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        <form class="bg-white border border-primary p-4 m-auto" action="" method="post">
+                            <input type="hidden" name="submited" value="true">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Nom</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                                               placeholder="Nom" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Prénom</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                                               placeholder="Prénom" required>
-                                    </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="lastname" class="form-label">Nom</label>
+                                    <input type="text" name="lastname" class="form-control" id="lastname"
+                                           placeholder="Nom" required>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Adresse mail</label>
-                                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                                               placeholder="adresse@mail.com" required>
-                                    </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="firstname" class="form-label">Prénom</label>
+                                    <input type="text" name="firstname" class="form-control" id="firstname"
+                                           placeholder="Prénom" required>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Message</label>
-                                        <textarea class="form-control" id="exampleFormControlInput1"
-                                                  placeholder="Votre message..."
-                                                  required rows="3"></textarea>
-                                    </div>
+                                <div class="col-12">
+                                    <label for="email" class="form-label">Adresse mail</label>
+                                    <input type="email" name="email" class="form-control" id="email"
+                                           placeholder="adresse@mail.com" required>
                                 </div>
-                                <button type="button" class="btn btn-primary border-0 mt-3">Envoyer</button>
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea name="message" class="form-control" id="message"
+                                              placeholder="Votre message..." required rows="3"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary border-0 mt-3 w-100">Envoyer</button>
+                                </div>
                             </div>
                         </form>
                     </div>
                 </div>
-            </div>
         </section>
     </main>
 {% endblock content %}
