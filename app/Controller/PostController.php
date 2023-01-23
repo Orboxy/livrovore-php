@@ -42,7 +42,7 @@ class PostController extends CoreController
             $newPost->setImage($_POST['image']);
             $newPost->setAuthor($_POST['author']);
             $newPost->setPublishedAt((new \DateTime())->format('Y-m-d H:i:s'));
-            $newPost->setSlug($_POST['slug']);// Ici, on ne demande pas la date dans le formulaire, puisque la date de publi c'est quandtu click, du coup, un simple new DateTime
+            $newPost->setSlug($_POST['slug']);// Ici, on ne demande pas la date dans le formulaire, puisque la date de publication c'est quand on click, du coup, un simple new DateTime
             // suffit pour générer la date et l'heure actuelle :)
 
             $result = $postManager->add($newPost);
@@ -69,8 +69,8 @@ class PostController extends CoreController
                 $post->setImage($_POST['image']);
                 $post->setAuthor($_POST['author']);
                 $post->setPublishedAt((new \DateTime())->format('Y-m-d H:i:s'));
-                $post->setSlug($_POST['slug']);// Ici, on ne demande pas la date dans le formulaire, puisque la date de publi c'est quand tu click, du coup, un simple new DateTime
-                // suffit pour générer la date et l'heure actuelle :)
+                $post->setSlug($_POST['slug']);// Ici, on ne demande pas la date dans le formulaire, puisque la date de publication c'est quand on click, du coup, un simple new DateTime
+                // suffit pour générer la date et l'heure actuelle
 
                 $result = $postManager->update($post);
                 if ($result) {
