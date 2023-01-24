@@ -48,13 +48,8 @@ class MainController extends CoreController
         if ($review) {
             $arguments['review'] = $review;
 
-            if(is_float($review->getNote())) {
-                $splitedNote = explode(".", $review->getNote());
-                $note = $splitedNote[0] . $splitedNote[1];
-            } else {
-                $note = $review->getNote() . "0";
-            }
-            $arguments['note'] = $note;
+            $splitedNote = explode(".", $review->getNote());
+            $arguments['note'] = $splitedNote[0] . (($splitedNote[1]) ?? "0");
 
             $this->show('pages/review.twig', $arguments);
         } else {

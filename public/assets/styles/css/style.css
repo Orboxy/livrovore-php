@@ -93,6 +93,12 @@ h1, h2, h3, h4, h5, h6, .title {
 .best-books {
     transition: all 0.2s ease-in-out;
 }
+.best-books img {
+    height: 30rem;
+    object-fit: cover;
+}
+
+
 
 .best-books:hover {
     background: white;
