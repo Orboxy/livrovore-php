@@ -83,14 +83,17 @@ class MainController extends CoreController
     public function contact(array $arguments = []): void
     {
         if (isset($_POST['submited'])) {
-            $sent = mail(
-                'camille.rgn-dbn@outlook.com',
-                'Formulaire de contact',
-                'Vous avez reçu un nouveau message de ' . $_POST['firstname'] . ' ' . $_POST['lastname'] . ' (' . $_POST['email'] . '). Message : ' . $_POST['message']
-            );
-
-            if ($sent) {
-                $arguments['success'][] = "Votre message à bien été envoyé !";
+            try {
+                $sent = mail(
+                    'camille.rgn-dbn@outlook.com',
+                    'Formulaire de contact',
+                    'Vous avez reçu un nouveau message de ' . $_POST['firstname'] . ' ' . $_POST['lastname'] . ' (' . $_POST['email'] . '). Message : ' . $_POST['message']
+                );
+                if ($sent) {
+                    $arguments['success'][] = "Votre message à bien été envoyé !";
+                }
+            } catch (\Exception $exception) {
+                $arguments['error'][] = "Une erreur est survenue lors de l'utilisation de mail().";
             }
         }
         $this->show('pages/contact.twig', $arguments);
