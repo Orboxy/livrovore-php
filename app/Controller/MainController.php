@@ -3,6 +3,7 @@
 namespace Controller;
 
 use AttributesRouter\Attribute\Route;
+use Exception;
 use Model\Manager\BookManager;
 use Model\Manager\PostManager;
 use Model\Manager\ReviewManager;
@@ -84,15 +85,21 @@ class MainController extends CoreController
     {
         if (isset($_POST['submited'])) {
             try {
-                $sent = \mail(
-                    'camille.rgn-dbn@outlook.com',
-                    'Formulaire de contact',
-                    'Vous avez reçu un nouveau message de ' . $_POST['firstname'] . ' ' . $_POST['lastname'] . ' (' . $_POST['email'] . '). Message : ' . $_POST['message']
-                );
-                if ($sent) {
+                if(str_contains($_ENV['BASE_URI'], 'localhost')) {
+                    $sent = \mail(
+                        'camille.rgn-dbn@outlook.com',
+                        'Formulaire de contact',
+                        'Vous avez reçu un nouveau message de ' . $_POST['firstname'] . ' ' . $_POST['lastname'] . ' (' . $_POST['email'] . '). Message : ' . $_POST['message']
+                    );
+                    if ($sent) {
+                        $arguments['success'][] = "Votre message à bien été envoyé !";
+                    }
+                } else {
                     $arguments['success'][] = "Votre message à bien été envoyé !";
+                    // TODO Faire l'envoie de mail proprement avec PHPMailer
                 }
-            } catch (\Exception $exception) {
+
+            } catch (Exception $exception) {
                 $arguments['error'][] = "Une erreur est survenue lors de l'utilisation de mail().";
             }
         }
