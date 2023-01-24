@@ -84,7 +84,7 @@ class MainController extends CoreController
     {
         if (isset($_POST['submited'])) {
             try {
-                $sent = mail(
+                $sent = \mail(
                     'camille.rgn-dbn@outlook.com',
                     'Formulaire de contact',
                     'Vous avez reçu un nouveau message de ' . $_POST['firstname'] . ' ' . $_POST['lastname'] . ' (' . $_POST['email'] . '). Message : ' . $_POST['message']
