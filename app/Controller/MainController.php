@@ -85,7 +85,7 @@ class MainController extends CoreController
     {
         if (isset($_POST['submited'])) {
             try {
-                if(str_contains($_ENV['BASE_URI'], 'localhost')) {
+                if(str_contains($_ENV['BASE_URI'], 'blog-php.test')) {
                     $sent = \mail(
                         'camille.rgn-dbn@outlook.com',
                         'Formulaire de contact',
