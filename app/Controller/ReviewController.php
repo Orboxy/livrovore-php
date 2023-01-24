@@ -37,7 +37,7 @@ class ReviewController extends CoreController
         header('Location: /admin/review');
     }
 
-    // Ici : On va faire l'ajout d'un article
+    // Ici : On va faire l'ajout d'une revue
     #[Route('/admin/review/add', name: 'admin-review-add', methods: ['GET', 'POST'])]
     public function add($arguments = [])
     {
@@ -55,7 +55,7 @@ class ReviewController extends CoreController
 
             $result = $reviewManager->add($newReview);
             if ($result) {
-                $arguments['success'][] = "Votre article à bien été créé.";
+                $arguments['success'][] = "Votre revue a bien été créée.";
             }
         }
 
@@ -83,7 +83,7 @@ class ReviewController extends CoreController
 
                 $result = $reviewManager->update($review);
                 if ($result) {
-                    $arguments['success'][] = "Votre review à bien été modifiée !";
+                    $arguments['success'][] = "Votre revue a bien été modifiée !";
                 } else {
                     $arguments['error'][] = "Y'a un pépin les gars !";
                 }

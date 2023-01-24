@@ -47,7 +47,7 @@ class PostController extends CoreController
 
             $result = $postManager->add($newPost);
             if ($result) {
-                $arguments['success'][] = "Votre article à bien été créé.";
+                $arguments['success'][] = "Votre article a bien été créé.";
             }
         }
 
@@ -73,8 +73,8 @@ class PostController extends CoreController
                 // suffit pour générer la date et l'heure actuelle
 
                 $result = $postManager->update($post);
-                if ($result) {
-                    $arguments['success'][] = "Votre article à bien été modifié !";
+                if ($result) { // Si la modif a réussi
+                    $arguments['success'][] = "Votre article a bien été modifié !";
                 } else {
                     $arguments['error'][] = "Y'a un pépin les gars !";
                 }
