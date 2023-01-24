@@ -42,7 +42,7 @@ class BookController extends CoreController
 
             $result = $bookManager->add($newPost);
             if ($result) {
-                $arguments['success'][] = "Votre article à bien été créé.";
+                $arguments['success'][] = "Votre livre à bien été créé.";
             }
         }
 
@@ -65,7 +65,7 @@ class BookController extends CoreController
 
                 $result = $bookManager->update($book);
                 if ($result) {
-                    $arguments['success'][] = "Votre article à bien été modifié !";
+                    $arguments['success'][] = "Votre livre à bien été modifié !";
                 } else {
                     $arguments['error'][] = "Y'a un pépin les gars !";
                 }
