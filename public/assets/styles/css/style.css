@@ -71,7 +71,6 @@ h1, h2, h3, h4, h5, h6, .title {
 .card {
     --bs-border-radius: 0;
     --bs-border-width: 0;
-
     box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.05);
 }
 
