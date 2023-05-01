@@ -4,9 +4,11 @@ namespace Controller;
 
 use AttributesRouter\Attribute\Route;
 use Exception;
+use FafMio\Pagination;
 use Model\Manager\BookManager;
 use Model\Manager\PostManager;
 use Model\Manager\ReviewManager;
+use Model\Post;
 
 class MainController extends CoreController
 {
@@ -69,8 +71,30 @@ class MainController extends CoreController
     public function articles(array $arguments = []): void
     {
         $postManager = new PostManager();
-        $arguments['tout_les_articles'] = $postManager->getAll(-1);
+        $arguments['tout_les_articles'] = (new PostManager())->getAll(6);
+        $arguments = $this->test($arguments);
+        $this->show('pages/posts.twig', $arguments);
+    }
 
+    private function test($arguments) {
+        $postManager = new PostManager();
+
+        $itemPerPageWanted = 6;
+        $allItems = $postManager->count();
+        $currentPage = intval(($arguments['params']['page']) ?? 1);
+        $offset = ($itemPerPageWanted * ($currentPage-1));
+
+        $arguments['tout_les_articles'] = $postManager->getAll($itemPerPageWanted, $offset);
+        $arguments['pagination'] = (new Pagination($allItems, $itemPerPageWanted, $currentPage, "/articles/(:num)"))->setPreviousText("Précédent")->setNextText("Suivant");
+
+        return $arguments;
+    }
+
+    #[Route('/articles/{page}', name: 'main-articles-paged', methods: ['GET'])]
+    public function articlesPaged(array $arguments = []): void
+    {
+        $postManager = new PostManager();
+        $arguments = $this->test($arguments);
         $this->show('pages/posts.twig', $arguments);
     }
 
@@ -116,6 +140,15 @@ class MainController extends CoreController
     public function legals(array $arguments = []): void
     {
         $this->show('pages/legals.twig', $arguments);
+    }
+
+    #[Route('/articles-add', name: 'main-articles-adddd', methods: ['GET'])]
+    public function adddd(array $arguments = []): void
+    {
+        $postManager = new PostManager();
+        for ($i = 0; $i < 30; $i++) {
+            $postManager->add(new Post("Article $i", "yo", "https://via.placeholder.com/720x480.png?text=Article+$i", (new \DateTime())->format('Y-m-d H:i:s'), " ", "article-$i"));
+        }
     }
 
 }

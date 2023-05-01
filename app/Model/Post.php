@@ -27,9 +27,19 @@ class Post
         }
     }
 
-    public function __construct6(int $id, string $title, string $content, string $image, string|\DateTime $published_at, string $author, string $slug): void
+    public function __construct7(int $id, string $title, string $content, string $image, string|\DateTime $published_at, string $author, string $slug): void
     {
         $this->id = $id;
+        $this->title = $title;
+        $this->content = $content;
+        $this->image = $image;
+        $this->published_at = $published_at;
+        $this->author = $author;
+        $this->slug = $slug;
+    }
+
+    public function __construct6(string $title, string $content, string $image, string|\DateTime $published_at, string $author, string $slug): void
+    {
         $this->title = $title;
         $this->content = $content;
         $this->image = $image;

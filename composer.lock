@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a2723406ccc43b60f9b8fa1765e15f1d",
+    "content-hash": "c1d7a24c35af0364f3141f44e8cb436c",
     "packages": [
         {
             "name": "brick/math",
@@ -105,6 +105,54 @@
                 "issues": "https://github.com/Eredost/attributes-router/issues"
             },
             "time": "2022-10-03T19:10:30+00:00"
+        },
+        {
+            "name": "fafmio/pagination",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FafMio/pagination.git",
+                "reference": "ff9a7df2ec4cf368efd3a3e8e15583ebbea26f2e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FafMio/pagination/zipball/ff9a7df2ec4cf368efd3a3e8e15583ebbea26f2e",
+                "reference": "ff9a7df2ec4cf368efd3a3e8e15583ebbea26f2e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "FafMio": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sylvain Roux",
+                    "email": "sylvain@syl-web.fr"
+                }
+            ],
+            "description": "A basic pagination service.",
+            "homepage": "http://github.com/fafmio/pagination",
+            "keywords": [
+                "page",
+                "pager",
+                "pages",
+                "pagination",
+                "paginator"
+            ],
+            "support": {
+                "issues": "https://github.com/FafMio/pagination/issues",
+                "source": "https://github.com/FafMio/pagination/tree/v1.0.1"
+            },
+            "time": "2023-01-25T11:44:56+00:00"
         },
         {
             "name": "graham-campbell/result-type",

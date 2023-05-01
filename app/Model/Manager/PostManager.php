@@ -53,7 +53,7 @@ class PostManager extends Database
          * Cela permet à PDO de ne pas renvoyer seulement un tableau qui contient les informations stockées en BDD, mais de les convertir en Objet PHP.
          * Dans ce cas ci-dessous, le Fetch Class va faire un new Post() avec les informations récupérées en BDD qui nous seront utilisables en tant qu'objet plutôt que de tableau.
          */
-        return $this->sql("SELECT * FROM article WHERE 1 ORDER BY published_at DESC" . $checkLimit . $check_offset, [], [PDO::FETCH_CLASS, Post::class])->fetchAll();
+        return $this->sql("SELECT * FROM article WHERE 1 ORDER BY id aSC" . $checkLimit . $check_offset, [], [PDO::FETCH_CLASS, Post::class])->fetchAll();
     }
 
     /*
@@ -108,6 +108,11 @@ class PostManager extends Database
     {
         return $this->sql("SELECT * FROM article ORDER BY published_at DESC LIMIT " . $size, [], [PDO::FETCH_CLASS, Post::class])->fetchAll();
 
+    }
+
+    public function count(): ?int
+    {
+        return $this->sql("SELECT COUNT(*) FROM article")->fetch()[0];
     }
 
 }

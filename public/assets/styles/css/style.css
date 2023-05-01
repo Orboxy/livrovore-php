@@ -93,11 +93,11 @@ h1, h2, h3, h4, h5, h6, .title {
 .best-books {
     transition: all 0.2s ease-in-out;
 }
+
 .best-books img {
     height: 30rem;
     object-fit: cover;
 }
-
 
 
 .best-books:hover {
@@ -144,7 +144,7 @@ img.card-img-top {
         height: 30rem;
     }
 
-    .img-top-card{
+    .img-top-card {
         width: 100%;
         height: 17rem;
         object-fit: cover;
@@ -155,6 +155,13 @@ img.card-img-top {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.featured-post img {
+    height: 17rem;
+    object-fit: cover;
+    object-position: center;
+
 }
 
 /*# sourceMappingURL=style.css.map */

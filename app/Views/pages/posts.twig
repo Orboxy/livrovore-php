@@ -14,7 +14,9 @@
                         {% include 'partials/components/post-card-list.twig' with {post: article} %}
                     {% endfor %}
                 </div>
-
+            </div>
+            <div class="col-6 mx-auto mt-3">
+                {{ pagination|raw }}
             </div>
         </section>
     </main>

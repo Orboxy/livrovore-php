@@ -8,8 +8,8 @@
                 <div class="col-lg-9 col-12">
                     <div class="row">
                         <div class="col-12 p-3 hovertop">
-                            <div class="card flex-md-row flex-column">
-                                <img src="https://picsum.photos/720/1000" alt="Card image" class="m-md-4 m-0 img-top-card" width="200">
+                            <div class="card flex-md-row flex-column featured-post">
+                                <img src="{{ dernier_article[0].image }}" alt="Card image" class="m-md-4 m-0 img-top-card" width="200">
                                 <div class="card-body align-self-center ms-0 ms-md-5 h-100">
                                     <p class="text-muted">{{ dernier_article[0].author }}</p>
                                     {# ici, je doit mettre un [0] car c'est un tableau, mais avec une seule valeur qui est notre article le plus récent #}
